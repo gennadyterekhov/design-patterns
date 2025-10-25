@@ -30,8 +30,6 @@ func (gs *GameState) Detach(obs ObserverInterface) {
 
 }
 
-// not necessary for the patterns, just for demo
-// a method to change state according to logic
 func (gs *GameState) Notify() {
 	for _, obsInst := range gs.Observers {
 		obsInst.Update()
