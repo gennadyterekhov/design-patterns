@@ -7,29 +7,26 @@ type GameState struct {
 	PlayerHealth     int
 	PlayerMana       int
 	TotalPoints      int
+	Player
+}
+type Player struct {
+	Mood string
 }
 
-func (gs *GameState) OddTurn() {
-	gs.CurrentTurnIndex++
-	gs.PlayerHealth--
-	gs.PlayerMana--
-	gs.TotalPoints--
-
-}
-func (gs *GameState) EvenTurn() {
-	gs.CurrentTurnIndex++
-	gs.PlayerHealth++
-	gs.PlayerMana++
-	gs.TotalPoints++
-
-}
-
-// not necessary for the patterns, just for demo
-// a method to change state according to logic
-func (gs *GameState) MakeATurn() {
-	if gs.CurrentTurnIndex%2 == 0 {
-		gs.EvenTurn()
-	} else {
-		gs.OddTurn()
+func (gs *GameState) ReactToCompliment() string {
+	if gs.Player.Mood == "sad" {
+		return "I don't deserve it..."
 	}
+	return "Thank you! That's so kind!"
+}
+
+func (gs *GameState) ReactToCriticism() string {
+	if gs.Player.Mood == "sad" {
+		return "You're right, I'm the worst."
+	}
+	return "I'll try to do better, thanks!"
+}
+
+func (gs *GameState) HearBadNews() {
+	gs.Player.Mood = "sad"
 }

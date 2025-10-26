@@ -14,14 +14,14 @@ func TestObserver(t *testing.T) {
 		PlayerHealth:     100,
 		PlayerMana:       100,
 		TotalPoints:      0,
+		Player:           Player{Mood: "happy"},
 	}
 
-	gs.MakeATurn()
-	assert.Equal(t, 99, gs.PlayerHealth)
+	assert.Equal(t, "Thank you! That's so kind!", gs.ReactToCompliment())
+	assert.Equal(t, "I'll try to do better, thanks!", gs.ReactToCriticism())
 
-	gs.MakeATurn()
+	gs.HearBadNews()
 
-	assert.Equal(t, 3, gs.CurrentTurnIndex)
-	assert.Equal(t, 100, gs.PlayerHealth)
-
+	assert.Equal(t, "I don't deserve it...", gs.ReactToCompliment())
+	assert.Equal(t, "You're right, I'm the worst.", gs.ReactToCriticism())
 }
