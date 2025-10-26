@@ -1,4 +1,4 @@
-// https://habrastorage.org/r/w1560/getpro/habr/post_images/4fb/72c/31e/4fb72c31e718d89f6cefb97af767b6ee.jpg
+// https://habrastorage.org/r/w1560/getpro/habr/post_images/8d8/303/cdb/8d8303cdbc70de33f376454c2eb6934a.jpg
 package strategy
 
 import "fmt"
@@ -11,7 +11,7 @@ type GameState struct {
 	TotalPoints      int
 	TurnsAsSonic     int
 	TurnsAsTails     int
-	Player Player
+	Player           Player
 }
 type Player struct {
 	Name string
